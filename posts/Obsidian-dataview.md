@@ -6,7 +6,7 @@ tags: ["实用工具", "技术", "推荐", "分享", "工作"]
 category: 互联网技巧
 ---
 
-了解完通过[Git插件](https://www.aiexplorernote.com/article/obsidian-git)在不同设备间同步Obsidian笔记，解决使用方面最基本的问题，下一个我想介绍的插件是Dataview。因为它是我个人觉得最有用的Obsidian插件。这个插件可以为工作进度、会议、读书笔记等信息创建数据库视图，增强Obsidian的信息管理和知识连接能力
+了解完通过[Git插件](https://www.aiexplorernote.com/blog/obsidian-git)在不同设备间同步Obsidian笔记，解决使用方面最基本的问题，下一个我想介绍的插件是Dataview。因为它是我个人觉得最有用的Obsidian插件。这个插件可以为工作进度、会议、读书笔记等信息创建数据库视图，增强Obsidian的信息管理和知识连接能力
 
 对我来说，笔记软件的数据库功能在工作上发挥的作用最直接、有效。它允许用户系统地组织任务信息，跟踪任务进度。转到Obsidian之前，我通过Notion的数据库功能帮我管理每月工作任务
 
@@ -174,7 +174,7 @@ Null值渲染为。此设置定义了在 Dataview 表格中，当某个字段的
 
 ## 氛围编程轻松解决Dataview查询编写
 
-尽管Dataview与Dataviewjs功能强大，但使用它们都需要有一定的编程基础。好在现在有AI，即使不懂代码的编程小白也可以通过[氛围编程](https://www.aiexplorernote.com/article/cursor-basics)轻松编写Dataview查询，创建数据库视图
+尽管Dataview与Dataviewjs功能强大，但使用它们都需要有一定的编程基础。好在现在有AI，即使不懂代码的编程小白也可以通过[氛围编程](https://www.aiexplorernote.com/blog/cursor-basics)轻松编写Dataview查询，创建数据库视图
 
 ## 小结
 

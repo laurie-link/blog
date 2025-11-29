@@ -105,7 +105,7 @@ So，我们来把上面的内容整合一下，看看 Gemini 在整个搜素工�
 
 ## 小结
 
-从网页版 Gemini 的搜索工作流，你可以了解到 Gemini 在其他地方，比如 [Gemini CLI](https://www.aiexplorernote.com/article/gemini-cli) 中的搜索工作流，甚至其他 AI，比如 ChatGPT、Claude 是如何进行搜索的，工作方式都差不多，换汤不换药
+从网页版 Gemini 的搜索工作流，你可以了解到 Gemini 在其他地方，比如 [Gemini CLI](https://www.aiexplorernote.com/blog/gemini-cli) 中的搜索工作流，甚至其他 AI，比如 ChatGPT、Claude 是如何进行搜索的，工作方式都差不多，换汤不换药
 
 我画了一个流程图，感兴趣可以看看:
 

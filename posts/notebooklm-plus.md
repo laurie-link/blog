@@ -53,7 +53,7 @@ NoteBookLM Plus包含于**Google One** 订阅，所有Google One订阅者可免�
 
 应该是类似于闹钟功能，定时提醒这种
 
-另一项更新和新模型[1.5 Pro with Deep Search](https://www.aiexplorernote.com/article/gemini-pro-with-deep-search)有关。与ChatGPT Canvas功能类似，Gemini这个更新允许用户在Canvas中打开1.5 Pro with Deep Search 生成的报告
+另一项更新和新模型[1.5 Pro with Deep Search](https://www.aiexplorernote.com/blog/gemini-pro-with-deep-search)有关。与ChatGPT Canvas功能类似，Gemini这个更新允许用户在Canvas中打开1.5 Pro with Deep Search 生成的报告
 
 ![notion image](https://img.aiexplorernote.com/pic/canvas-of-1.5-pro-with-deep-search.jpg?t=15ed1f9c-c2a3-8092-8c16-e16203ef77ab)
 
@@ -71,7 +71,7 @@ NoteBookLM Plus包含于**Google One** 订阅，所有Google One订阅者可免�
 
 ## OpenAI长文怼马斯克--”起诉无法换来AGI"
 
-马斯克前两天再次上诉OpenAI转变为[盈利组织](https://www.aiexplorernote.com/article/openai-restructures-as-for-profit-company)，这已是今年马斯克第四次起诉OpenAI。今早，OpenAI专门发布一篇长文博客，证明OpenAI转变为盈利组织本就是马斯克支持的
+马斯克前两天再次上诉OpenAI转变为[盈利组织](https://www.aiexplorernote.com/blog/openai-restructures-as-for-profit-company)，这已是今年马斯克第四次起诉OpenAI。今早，OpenAI专门发布一篇长文博客，证明OpenAI转变为盈利组织本就是马斯克支持的
 
 ![notion image](https://img.aiexplorernote.com/pic/openai-blog-against-elon-musk.jpg?t=15ed1f9c-c2a3-802a-8110-d7beffe20280)
 

@@ -8,7 +8,7 @@ category: AI学习
 
 ChatGPT充值还是有难度的，这两天又发现即使充值成功，也可能因为IP不干净遇到ChatGPT降智问题。。
 
-关于IP、节点质量检测，你可以参考[这篇](https://www.aiexplorernote.com/article/scamalytics)，还有[这篇文章](https://www.aiexplorernote.com/article/ip-testing)
+关于IP、节点质量检测，你可以参考[这篇](https://www.aiexplorernote.com/blog/scamalytics)，还有[这篇文章](https://www.aiexplorernote.com/blog/ip-testing)
 
 不过降智应该是暂时性问题，主要由于最近ChatGPT与苹果手机集成后算力不够，过两天应该能修好
 

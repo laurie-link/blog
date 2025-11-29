@@ -17,7 +17,7 @@ OpenAI这次没对模型做升级，只是公布了期货”O3“模型，很符
 
 第三个，Gemini-2.0-Flash-Thinking-Exp-1219，与o1-mini、o1-preview模型相差不多的思维链模型，回复前会思考一段时间，且思考过程全部公开，具备联网、识图能力。对标ChatGPT o1-mini模型
 
-第四个，Gemini-Exp-1206，对标ChatGPT o1模型。这模型真的强，前几天让它做个翻译任务，翻译完的成品基本上拿来就能用，我完全没改，感兴趣的小伙伴可以看[这篇文章](https://www.aiexplorernote.com/article/gemini-with-deep-search-test)。虽然没让GPT4翻译，但订阅GPT一年了，我很了解它翻译什么水平。。
+第四个，Gemini-Exp-1206，对标ChatGPT o1模型。这模型真的强，前几天让它做个翻译任务，翻译完的成品基本上拿来就能用，我完全没改，感兴趣的小伙伴可以看[这篇文章](https://www.aiexplorernote.com/blog/gemini-with-deep-search-test)。虽然没让GPT4翻译，但订阅GPT一年了，我很了解它翻译什么水平。。
 
 最happy的是这几个模型都能免费在AI Studio使用，AI Studio 地址：
 
@@ -31,11 +31,11 @@ ChatBot竞技场地址：
 
 [huggingface.cohttps://huggingface.co/spaces/lmarena-ai/chatbot-arena-leaderboard](https://huggingface.co/spaces/lmarena-ai/chatbot-arena-leaderboard)
 
-上次介绍过另一个模型能力测评网站，感兴趣的小伙伴可以看[这篇文章](https://www.aiexplorernote.com/article/artificialanalysis)
+上次介绍过另一个模型能力测评网站，感兴趣的小伙伴可以看[这篇文章](https://www.aiexplorernote.com/blog/artificialanalysis)
 
 Gemini 19号还更新了一个上传整个代码仓库让Gemini分析的功能，有效利用Gemini 200万token的超大上下文窗口。这倒是一个聊天AI与IDE协作式AI，如GitHub Copilot和cursor竞争时，一个有效增强竞争力的方法。但很明显这样最大的问题是隐私，用户上传的文档谷歌都能看到
 
-谷歌这次更新实在太多了，更多更新，你可以看[这篇](https://www.aiexplorernote.com/article/gemini-pro-with-deep-search)，[这篇](https://www.aiexplorernote.com/article/notebooklm-plus)，还有[这篇](https://www.aiexplorernote.com/article/imagen3-and-veo2)
+谷歌这次更新实在太多了，更多更新，你可以看[这篇](https://www.aiexplorernote.com/blog/gemini-pro-with-deep-search)，[这篇](https://www.aiexplorernote.com/blog/notebooklm-plus)，还有[这篇](https://www.aiexplorernote.com/blog/imagen3-and-veo2)
 
 ## 一个免翻访问ChatGPT官网的网站
 

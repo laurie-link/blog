@@ -5,7 +5,7 @@ tags: ["互联网"]
 category: 互联网技巧
 ---
 
-前几天推荐过一个检测IP纯净度的网站：[scamalytics](https://www.aiexplorernote.com/article/scamalytics)，文章阅读量还不错。今天给大家分享另外两个我常用来检测IP、节点质量的工具和方法
+前几天推荐过一个检测IP纯净度的网站：[scamalytics](https://www.aiexplorernote.com/blog/scamalytics)，文章阅读量还不错。今天给大家分享另外两个我常用来检测IP、节点质量的工具和方法
 
 scamalytics这里就不说了，感兴趣的小伙伴可以看上面提到的那篇文章
 

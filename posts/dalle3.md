@@ -62,7 +62,7 @@ Prompt链接：
 
 生成多了会达到限制，这时可以通过中转API解决这个问题，无限生图。通过中转API生图可以用
 
-[这篇文章](https://www.aiexplorernote.com/article/-chatgpt-web-midjourney)
+[这篇文章](https://www.aiexplorernote.com/blog/-chatgpt-web-midjourney)
 
 中提到的客户端（同时确保你的中转API支持DALLE3，我用的OneAPI），到绘画中选择DALLE3就行
 

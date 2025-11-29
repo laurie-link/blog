@@ -7,7 +7,7 @@ category: AI学习
 
 ## 与Deep Search 类似的”Codenamed Caterpillar“
 
-谷歌前段时间推出一个新模型[1.5 Pro with Deep Search](https://www.aiexplorernote.com/article/gemini-with-deep-search-test), 在用户给它一个主题让它研究后，它可以利用多个“智能体分身”，自动阅读多达上百个网页，最后汇总结果并生成一个详尽的报告。这项功能一经推出便备受网友称赞，许多博主也专门做视频介绍过这个功能
+谷歌前段时间推出一个新模型[1.5 Pro with Deep Search](https://www.aiexplorernote.com/blog/gemini-with-deep-search-test), 在用户给它一个主题让它研究后，它可以利用多个“智能体分身”，自动阅读多达上百个网页，最后汇总结果并生成一个详尽的报告。这项功能一经推出便备受网友称赞，许多博主也专门做视频介绍过这个功能
 
 OpenAI看到这项功能也坐不住了，网传即将推出一个叫“Codenamed Caterpillar“ 的功能，与1.5 pro with deep search 类似
 

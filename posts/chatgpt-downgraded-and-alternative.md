@@ -11,7 +11,7 @@ category: AI学习
 
 最近几天都在研究怎么避免ChatGPT降智，今天这篇文章就来分享一下
 
-首先，最重要的是IP纯净度，它是决定ChatGPT是否会降智的关键因素。IP按纯净度从低到高分位三种：机房IP，商业/企业IP，住宅IP。经测试，想不让ChatGPT降智至少要是商业IP。IP纯净度怎么看以及具体哪种IP不会被降智，感兴趣的小伙伴可以看昨天[这篇文章](https://www.aiexplorernote.com/article/correct-ip-types-to-avoid-chatgpt-downgraded)
+首先，最重要的是IP纯净度，它是决定ChatGPT是否会降智的关键因素。IP按纯净度从低到高分位三种：机房IP，商业/企业IP，住宅IP。经测试，想不让ChatGPT降智至少要是商业IP。IP纯净度怎么看以及具体哪种IP不会被降智，感兴趣的小伙伴可以看昨天[这篇文章](https://www.aiexplorernote.com/blog/correct-ip-types-to-avoid-chatgpt-downgraded)
 
 其次是Cloudflare人机验证
 

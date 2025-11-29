@@ -25,7 +25,7 @@ category: AI学习
 
 ![notion image](https://img.aiexplorernote.com/pic/asn-and-company-type-in-ipinfo.jpg?t=177d1f9c-c2a3-8029-88f7-edcd956138ad)
 
-重点来了：不能两个全部是”hosting"，这种IP是纯机房IP，现在必降智。我有一个机房IP，在[scamalytics](https://www.aiexplorernote.com/article/scamalytics)中显示风险值为8，已经算高纯净度IP，但依然被降智
+重点来了：不能两个全部是”hosting"，这种IP是纯机房IP，现在必降智。我有一个机房IP，在[scamalytics](https://www.aiexplorernote.com/blog/scamalytics)中显示风险值为8，已经算高纯净度IP，但依然被降智
 
 排除机房IP，不会被降智的IP类型还剩下以下几种：
 

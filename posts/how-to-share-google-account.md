@@ -43,4 +43,4 @@ category: 互联网技巧
 
 要注意的是，这种谷歌账号实际没有一个真正的账号主人，任何拥有上面3样凭据的人**完全能将邮箱占为己有** ，只要更改辅助邮箱就行。通过这种方法共享谷歌账号应该只在信得过的人间进行
 
-如果这篇文章对你有帮助，记得三连一下哦，感谢。另外，如果你想无限创建谷歌账号，可以看这篇👉：[无限创建谷歌账号](https://www.aiexplorernote.com/article/cant-register-google-account-indefinitely)
+如果这篇文章对你有帮助，记得三连一下哦，感谢。另外，如果你想无限创建谷歌账号，可以看这篇👉：[无限创建谷歌账号](https://www.aiexplorernote.com/blog/cant-register-google-account-indefinitely)

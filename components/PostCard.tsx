@@ -11,8 +11,8 @@ interface Post {
 
 export default function PostCard({ post }: { post: Post }) {
   return (
-    <article className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-shadow overflow-hidden">
-      <div className="p-6">
+    <article className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-shadow overflow-hidden relative">
+      <div className="p-6 pb-14">
         <div className="flex flex-wrap gap-2 mb-3">
           {post.category && (
             <Link
@@ -32,26 +32,24 @@ export default function PostCard({ post }: { post: Post }) {
             </Link>
           ))}
         </div>
-        
+
         <Link href={`/blog/${post.slug}`}>
           <h3 className="text-2xl font-bold mb-2 hover:text-primary-600 transition-colors">
             {post.title}
           </h3>
         </Link>
-        
+
         <p className="text-gray-600 dark:text-gray-400 mb-4 line-clamp-3">
           {post.excerpt}
         </p>
-        
-        <div className="flex items-center justify-between">
-          <time className="text-sm text-gray-500">
-            {new Date(post.date).toLocaleDateString('zh-CN', {
-              year: 'numeric',
-              month: 'long',
-              day: 'numeric'
-            })}
-          </time>
-        </div>
+
+        <time className="absolute bottom-6 left-6 text-sm text-gray-500">
+          {new Date(post.date).toLocaleDateString('zh-CN', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+          })}
+        </time>
       </div>
     </article>
   )

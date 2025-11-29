@@ -6,7 +6,7 @@ tags: ["实用工具"]
 category: 互联网工具
 ---
 
-前段时间写过一篇[使用Obsidian Git插件实现同步](https://www.aiexplorernote.com/article/obsidian-git)，但Git插件对移动端支持很差，几乎完全不能用。好在最近发现一个手机软件gitsync，可以代替git插件将Obsidian笔记库同步到移动端
+前段时间写过一篇[使用Obsidian Git插件实现同步](https://www.aiexplorernote.com/blog/obsidian-git)，但Git插件对移动端支持很差，几乎完全不能用。好在最近发现一个手机软件gitsync，可以代替git插件将Obsidian笔记库同步到移动端
 
 ![notion image](https://img.aiexplorernote.com/share-google-account/gitsync-logo.jpg?t=214d1f9c-c2a3-800e-8da5-e722f42220b7)
 

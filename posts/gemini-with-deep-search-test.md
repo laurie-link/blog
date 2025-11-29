@@ -9,7 +9,7 @@ category: AI学习
 
 然而，由于生成式AI主要依靠训练时学到的知识回答用户，它不知道训练截止日期之后发生的一切。人们使用AI搜集信息的效率也因此减损，这是使用AI搜集信息的一大短板。且单纯靠联网API让AI实时获取信息的做法，如SearchGPT，事实证明有一定效果，但不够好
 
-前两天Gemini推出新模型”[1.5 Pro with Deep Search](https://www.aiexplorernote.com/article/gemini-pro-with-deep-search)", 主要基于“AI Agent”思想研发。虽然暂不清楚具体原理，这两天实测发现已经达到这样的效果：把我想了解的主题发给AI，AI能自己利用搜索引擎搜索，并查看前几页结果。最后整理，汇总一份详尽的报告给我
+前两天Gemini推出新模型”[1.5 Pro with Deep Search](https://www.aiexplorernote.com/blog/gemini-pro-with-deep-search)", 主要基于“AI Agent”思想研发。虽然暂不清楚具体原理，这两天实测发现已经达到这样的效果：把我想了解的主题发给AI，AI能自己利用搜索引擎搜索，并查看前几页结果。最后整理，汇总一份详尽的报告给我
 
 我的体验是效果很好，于是今天想专门分享两个实际例子，让大家看看这模型怎么样。一个是大家都熟悉的小杨哥，这是一开始给Gemini的Prompt：
 

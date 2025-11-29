@@ -6,7 +6,7 @@ tags: ["互联网"]
 category: 互联网技巧
 ---
 
-前段时间由于运营商回收IP，然后服务器商家给我换了个机房IP，虽然在[scmalytics](https://www.aiexplorernote.com/article/scamalytics)中查这个IP欺诈值只有8，低于网上说的低于10就能注册Talktone的阈值，但试了一下发现用这个IP打开Talktone就会退回默认登录页面，然后也登不上去了
+前段时间由于运营商回收IP，然后服务器商家给我换了个机房IP，虽然在[scmalytics](https://www.aiexplorernote.com/blog/scamalytics)中查这个IP欺诈值只有8，低于网上说的低于10就能注册Talktone的阈值，但试了一下发现用这个IP打开Talktone就会退回默认登录页面，然后也登不上去了
 
 ![notion image](https://img.aiexplorernote.com/pic/talktone-login-page.jpg?t=179d1f9c-c2a3-8063-8f2a-d65c82eeff07)
 
@@ -22,4 +22,4 @@ category: 互联网技巧
 
   * **isp + isp**
 
-关于如何查看IP类型，可以看[检测IP类型](https://www.aiexplorernote.com/article/ip-testing)的文章
+关于如何查看IP类型，可以看[检测IP类型](https://www.aiexplorernote.com/blog/ip-testing)的文章

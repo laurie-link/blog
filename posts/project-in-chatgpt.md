@@ -27,7 +27,7 @@ OpenAI一开始在12月3日发布**Sora** 时，由于当天**过于火爆** ，
 
 ## 微软Copilot新功能
 
-最近微软也在悄悄搞事情，只不过与\[Gemini\]\([Gemini大更新，完虐ChatGPT | 文雅的疯狂的学习笔记](https://www.aiexplorernote.com/article/gemini-pro-with-deep-search)\)和ChatGPT相比，Copliot新功能有些**相形见绌**
+最近微软也在悄悄搞事情，只不过与\[Gemini\]\([Gemini大更新，完虐ChatGPT | 文雅的疯狂的学习笔记](https://www.aiexplorernote.com/blog/gemini-pro-with-deep-search)\)和ChatGPT相比，Copliot新功能有些**相形见绌**
 
 ### Think Deeper
 

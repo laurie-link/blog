@@ -5,7 +5,7 @@ tags: ["AI工具", "AI项目", "深度AI博文"]
 category: AI学习
 ---
 
-Dektopcommander MCP，这个 [MCP 服务器](https://www.aiexplorernote.com/article/model-context-protocol)主要用于给 Claude 桌面应用程序添加执行命令行的功能，这样 Claude 就能像 [Cursor](https://www.aiexplorernote.com/article/cursor-basics) 和 [Gemini CLI ](https://www.aiexplorernote.com/article/gemini-cli) 一样用命令行对本地文件进行增、删、查。并且可以编写包含"old string"以及"new string"的结构化数据实现像 Cursor, Windsurf 那样对文件内容进行文本替换
+Dektopcommander MCP，这个 [MCP 服务器](https://www.aiexplorernote.com/blog/model-context-protocol)主要用于给 Claude 桌面应用程序添加执行命令行的功能，这样 Claude 就能像 [Cursor](https://www.aiexplorernote.com/blog/cursor-basics) 和 [Gemini CLI ](https://www.aiexplorernote.com/blog/gemini-cli) 一样用命令行对本地文件进行增、删、查。并且可以编写包含"old string"以及"new string"的结构化数据实现像 Cursor, Windsurf 那样对文件内容进行文本替换
 
 官网地址:
 
@@ -37,7 +37,7 @@ Mac/Linux 运行:
 
 最后来个关于如何注册 Claude 账号的彩蛋
 
-Claude 账号注册是要外国手机号的，之前试过 SMS Activate 那个接码平台，接不到验证码，我后来用 [Talkatone](https://www.aiexplorernote.com/article/talkatone) 美国手机号注册的。但Talkatone 对小白来说难度太大。最近看到 WildCard 有免费提供 Claude 注册接码服务
+Claude 账号注册是要外国手机号的，之前试过 SMS Activate 那个接码平台，接不到验证码，我后来用 [Talkatone](https://www.aiexplorernote.com/blog/talkatone) 美国手机号注册的。但Talkatone 对小白来说难度太大。最近看到 WildCard 有免费提供 Claude 注册接码服务
 
 ![notion image](https://img.aiexplorernote.com/share-google-account/wildcard-register-number.jpg?t=222d1f9c-c2a3-80e8-9725-c6385faa600a)
 
@@ -45,6 +45,6 @@ Claude 账号注册是要外国手机号的，之前试过 SMS Activate 那个�
 
 温馨提示：WildCard 是一家比较稳定的虚拟卡供应商，你如果不知道怎么充值 Claude，可以直接买 WildCard 虚拟卡充值（没恰饭）
 
-之前Claude 封号严重，但最近好像正常使用不太会被封，我这号使用快半年了都。另外，Claude 封号是会**退款** 的啊！怕个锤子。加上能[无限注册谷歌账号](https://www.aiexplorernote.com/article/cant-register-google-account-indefinitely)，我表示不虚
+之前Claude 封号严重，但最近好像正常使用不太会被封，我这号使用快半年了都。另外，Claude 封号是会**退款** 的啊！怕个锤子。加上能[无限注册谷歌账号](https://www.aiexplorernote.com/blog/cant-register-google-account-indefinitely)，我表示不虚
 
 如果你在充值 ChatGPT，建议能转 Claude 就转 Claude。现阶段 ChatGPT 性价比很低，用 Claude 的话能玩 MCP 服务器
