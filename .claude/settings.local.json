@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(tree /F /A app)",
+      "Bash(tree:*)",
+      "Bash(findstr:*)",
+      "Bash(copy:*)",
+      "Bash(if exist \".next\" rmdir /s /q .next)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

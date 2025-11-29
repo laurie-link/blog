@@ -1,0 +1,390 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 15, 23, 42;
+  --background-start-rgb: 255, 255, 255;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 15, 23, 42;
+    --background-end-rgb: 15, 23, 42;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+/* 自定义样式 */
+.prose {
+  @apply max-w-none;
+}
+
+/* Markdown 内容容器 */
+.markdown-content {
+  @apply text-base;
+}
+
+/* ===== Markdown Body 样式 (服务器端渲染的 HTML) ===== */
+.markdown-body h1 {
+  @apply text-4xl font-bold mt-8 mb-6 text-gray-900 dark:text-white border-b-4 border-primary-500 pb-3;
+}
+
+.markdown-body h2 {
+  @apply text-3xl font-bold mt-8 mb-4 text-gray-900 dark:text-white border-b-2 border-gray-300 dark:border-gray-700 pb-2;
+}
+
+.markdown-body h3 {
+  @apply text-2xl font-bold mt-6 mb-3 text-gray-900 dark:text-white;
+}
+
+.markdown-body h4 {
+  @apply text-xl font-bold mt-4 mb-2 text-gray-900 dark:text-white;
+}
+
+.markdown-body p {
+  @apply mb-4 leading-relaxed text-gray-700 dark:text-gray-300 text-lg;
+}
+
+.markdown-body a {
+  @apply text-primary-600 dark:text-primary-400 hover:text-primary-800 dark:hover:text-primary-300 underline decoration-2 underline-offset-2 transition-colors;
+}
+
+.markdown-body ul {
+  @apply mb-6 ml-6 space-y-2 list-disc;
+}
+
+.markdown-body ul li::marker {
+  @apply text-primary-500;
+}
+
+.markdown-body ol {
+  @apply mb-6 ml-6 space-y-2 list-decimal;
+}
+
+.markdown-body ol li::marker {
+  @apply text-primary-500 font-semibold;
+}
+
+.markdown-body li {
+  @apply text-gray-700 dark:text-gray-300 leading-relaxed pl-2;
+}
+
+.markdown-body code {
+  @apply px-2 py-0.5 bg-gray-100 dark:bg-gray-800 text-primary-600 dark:text-primary-400 rounded text-sm font-mono border border-gray-200 dark:border-gray-700;
+}
+
+.markdown-body pre {
+  @apply mb-6 p-4 bg-gray-900 dark:bg-gray-950 rounded-lg overflow-x-auto border border-gray-700 shadow-lg;
+}
+
+.markdown-body pre code {
+  @apply px-0 py-0 bg-transparent text-gray-100 border-0 text-sm;
+}
+
+.markdown-body blockquote {
+  @apply mb-6 pl-4 py-2 border-l-4 border-primary-500 bg-primary-50 dark:bg-gray-800 italic text-gray-700 dark:text-gray-300 rounded-r-lg;
+}
+
+.markdown-body blockquote p {
+  @apply mb-0;
+}
+
+.markdown-body table {
+  @apply mb-6 min-w-full divide-y divide-gray-300 dark:divide-gray-700 border border-gray-300 dark:border-gray-700 rounded-lg overflow-hidden;
+}
+
+.markdown-body thead {
+  @apply bg-gray-100 dark:bg-gray-800;
+}
+
+.markdown-body tbody {
+  @apply divide-y divide-gray-200 dark:divide-gray-700 bg-white dark:bg-gray-900;
+}
+
+.markdown-body tr {
+  @apply hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors;
+}
+
+.markdown-body th {
+  @apply px-4 py-3 text-left text-sm font-semibold text-gray-900 dark:text-white;
+}
+
+.markdown-body td {
+  @apply px-4 py-3 text-sm text-gray-700 dark:text-gray-300;
+}
+
+.markdown-body hr {
+  @apply my-8 border-t-2 border-gray-300 dark:border-gray-700;
+}
+
+.markdown-body img {
+  @apply mb-6 rounded-lg shadow-lg max-w-3xl w-full h-auto mx-auto border border-gray-200 dark:border-gray-700 cursor-pointer transition-transform hover:scale-[1.02];
+}
+
+.markdown-body strong {
+  @apply font-bold text-gray-900 dark:text-white;
+}
+
+.markdown-body em {
+  @apply italic text-gray-800 dark:text-gray-200;
+}
+
+.markdown-body del {
+  @apply line-through text-gray-500;
+}
+
+/* 代码块优化 - 简化版 */
+code {
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: 0.9em;
+}
+
+/* 滚动条样式 */
+.markdown-body pre::-webkit-scrollbar {
+  height: 8px;
+}
+
+.markdown-body pre::-webkit-scrollbar-track {
+  @apply bg-gray-800;
+  border-radius: 4px;
+}
+
+.markdown-body pre::-webkit-scrollbar-thumb {
+  @apply bg-gray-600;
+  border-radius: 4px;
+}
+
+.markdown-body pre::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-500;
+}
+
+/* 表格响应式 */
+@media (max-width: 768px) {
+  .markdown-body table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
+
+/* 选中文本样式 */
+::selection {
+  @apply bg-primary-200 dark:bg-primary-800 text-gray-900 dark:text-white;
+}
+
+/* 链接悬停效果 */
+a {
+  transition: all 0.2s ease-in-out;
+}
+
+/* 列表样式优化 */
+ul ul, ol ul, ul ol, ol ol {
+  @apply mt-2 mb-2;
+}
+
+/* 标题锚点悬停效果 */
+h1:hover, h2:hover, h3:hover, h4:hover {
+  @apply opacity-90;
+}
+
+/* 注意事项/提示框样式 */
+.note {
+  @apply my-6 p-4 rounded-lg border-l-4;
+}
+
+.note-info {
+  @apply border-blue-500 bg-blue-50 dark:bg-blue-900/20;
+}
+
+.note-warning {
+  @apply border-yellow-500 bg-yellow-50 dark:bg-yellow-900/20;
+}
+
+.note-danger {
+  @apply border-red-500 bg-red-50 dark:bg-red-900/20;
+}
+
+.note-success {
+  @apply border-green-500 bg-green-50 dark:bg-green-900/20;
+}
+
+/* ===== 单独一行的纯链接卡片样式 ===== */
+.plain-link-card {
+  @apply my-6 relative;
+}
+
+.plain-link-card .plain-link-content {
+  @apply flex items-center gap-3 p-4 bg-gradient-to-r from-primary-50 to-blue-50 dark:from-primary-900/20 dark:to-blue-900/20 border-2 border-primary-200 dark:border-primary-800 rounded-xl hover:border-primary-400 dark:hover:border-primary-600 transition-all duration-300 no-underline hover:shadow-lg hover:scale-[1.01];
+}
+
+.plain-link-card .link-icon {
+  @apply w-5 h-5 text-primary-500 dark:text-primary-400 flex-shrink-0 transition-transform;
+}
+
+.plain-link-card .plain-link-content:hover .link-icon {
+  @apply scale-110;
+}
+
+.plain-link-card .link-text {
+  @apply flex-1 text-primary-700 dark:text-primary-300 font-medium text-sm break-all transition-colors;
+}
+
+.plain-link-card .plain-link-content:hover .link-text {
+  @apply text-primary-900 dark:text-primary-100;
+}
+
+.plain-link-card .external-icon {
+  @apply w-4 h-4 text-primary-400 dark:text-primary-500 flex-shrink-0 opacity-60 transition-all;
+}
+
+.plain-link-card .plain-link-content:hover .external-icon {
+  @apply opacity-100 translate-x-0.5 -translate-y-0.5;
+}
+
+/* ===== Notion Bookmark 卡片样式 ===== */
+.notion-bookmark {
+  @apply border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow my-6 bg-white dark:bg-gray-800;
+}
+
+/* Bookmark 链接样式 - 覆盖默认链接样式 */
+.notion-bookmark a,
+.markdown-body .notion-bookmark a {
+  @apply block no-underline hover:no-underline !important;
+  text-decoration: none !important;
+  color: inherit !important;
+}
+
+/* Bookmark 内容容器 */
+.notion-bookmark > a > div {
+  @apply p-3 flex gap-3 items-center hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors cursor-pointer;
+}
+
+/* Bookmark 文本区域 */
+.notion-bookmark > a > div > div:first-child {
+  @apply flex-1 min-w-0;
+}
+
+/* Bookmark 标题 */
+.notion-bookmark > a > div > div:first-child > div:first-child {
+  @apply text-base font-semibold mb-1 text-gray-900 dark:text-white line-clamp-1;
+}
+
+/* Bookmark URL 行 */
+.notion-bookmark > a > div > div:first-child > div:last-child {
+  @apply text-xs text-gray-500 dark:text-gray-400 truncate flex items-center gap-1;
+}
+
+/* Bookmark 图标容器 */
+.notion-bookmark > a > div > div:last-child {
+  @apply flex-shrink-0 overflow-hidden bg-gray-100 dark:bg-gray-700 rounded flex items-center justify-center border border-gray-200 dark:border-gray-600;
+  width: 2.5rem !important;
+  height: 2.5rem !important;
+  min-width: 2.5rem !important;
+}
+
+/* Bookmark 图标图片 */
+.notion-bookmark img,
+.markdown-body .notion-bookmark img {
+  width: 1.75rem !important;
+  height: 1.75rem !important;
+  max-width: 1.75rem !important;
+  max-height: 1.75rem !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  object-fit: contain;
+}
+
+/* Bookmark fallback emoji 图标 */
+.notion-bookmark > a > div > div:last-child > div {
+  font-size: 1.25rem !important;
+}
+
+/* Bookmark 内链接图标 SVG */
+.notion-bookmark svg {
+  width: 0.75rem !important;
+  height: 0.75rem !important;
+  max-width: 0.75rem !important;
+  max-height: 0.75rem !important;
+  flex-shrink: 0 !important;
+}
+
+/* ===== 自定义滚动条样式 ===== */
+/* Webkit 浏览器 (Chrome, Safari, Edge) */
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 3px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 dark:bg-gray-600;
+  border-radius: 3px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-400 dark:bg-gray-500;
+}
+
+/* Firefox */
+.scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(209 213 219) transparent;
+}
+
+@media (prefers-color-scheme: dark) {
+  .scrollbar-thin {
+    scrollbar-color: rgb(75 85 99) transparent;
+  }
+}
+
+/* ===== 目录滚动条样式 - 更明显 ===== */
+/* Webkit 浏览器 (Chrome, Safari, Edge) */
+.toc-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.toc-scrollbar::-webkit-scrollbar-track {
+  @apply bg-gray-100 dark:bg-gray-700;
+  border-radius: 4px;
+}
+
+.toc-scrollbar::-webkit-scrollbar-thumb {
+  @apply bg-gray-400 dark:bg-gray-500;
+  border-radius: 4px;
+}
+
+.toc-scrollbar::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-500 dark:bg-gray-400;
+}
+
+/* Firefox */
+.toc-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(156 163 175) rgb(243 244 246);
+}
+
+@media (prefers-color-scheme: dark) {
+  .toc-scrollbar {
+    scrollbar-color: rgb(107 114 128) rgb(55 65 81);
+  }
+}
