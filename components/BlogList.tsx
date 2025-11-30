@@ -12,7 +12,6 @@ interface Post {
   excerpt: string
   tags: string[]
   category?: string
-  content: string
 }
 
 interface BlogListProps {
@@ -76,7 +75,6 @@ export default function BlogList({ posts }: BlogListProps) {
       result = result.filter(post =>
         post.title.toLowerCase().includes(query) ||
         post.excerpt.toLowerCase().includes(query) ||
-        post.content.toLowerCase().includes(query) ||
         post.tags.some(tag => tag.toLowerCase().includes(query))
       )
     }

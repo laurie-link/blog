@@ -5,7 +5,22 @@
       "Bash(tree:*)",
       "Bash(findstr:*)",
       "Bash(copy:*)",
-      "Bash(if exist \".next\" rmdir /s /q .next)"
+      "Bash(if exist \".next\" rmdir /s /q .next)",
+      "Bash(dir:*)",
+      "Bash(npm install)",
+      "Bash(npm run build:*)",
+      "Bash(npm start)",
+      "Bash(npm install:*)",
+      "Bash(npx lighthouse:*)",
+      "Bash(node:*)",
+      "Bash(lsof:*)",
+      "Bash(xargs kill:*)",
+      "Bash(taskkill:*)",
+      "Bash(npm run dev:*)",
+      "mcp__playwright__browser_navigate",
+      "Bash(rm:*)",
+      "mcp__playwright__browser_take_screenshot",
+      "mcp__playwright__browser_evaluate"
     ],
     "deny": [],
     "ask": []

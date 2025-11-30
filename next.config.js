@@ -1,13 +1,17 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  
+
   // 性能优化配置
   compiler: {
     // 移除 console.log（生产环境）
     removeConsole: process.env.NODE_ENV === 'production',
   },
-  
+
+  // 压缩和优化
+  compress: true,
+  poweredByHeader: false,
+
   // 图片优化配置
   images: {
     // 允许的外部图片域名
@@ -57,25 +61,17 @@ const nextConfig = {
     ]
   },
 
-  // Webpack 配置
-  webpack: (config, { isServer }) => {
-    if (isServer) {
-      // 服务器端：将某些 Node.js 特定的包标记为外部
-      config.externals = config.externals || []
-      config.externals.push({
-        'supports-color': 'commonjs supports-color',
-      })
-    }
-    return config
-  },
+  // Next.js 16 使用 Turbopack
+  turbopack: {},
 
-  // 实验性功能
+  // Next.js 16 优化功能
   experimental: {
     // 优化包导入
-    optimizePackageImports: ['react-markdown', 'highlight.js'],
-    // 将 probe-image-size 作为外部包处理
-    serverComponentsExternalPackages: ['probe-image-size', 'needle', 'supports-color'],
+    optimizePackageImports: ['unified', 'remark-parse', 'remark-gfm', 'rehype-raw'],
   },
+
+  // 外部包处理 (Next.js 16+)
+  serverExternalPackages: ['probe-image-size', 'needle'],
 }
 
 module.exports = nextConfig

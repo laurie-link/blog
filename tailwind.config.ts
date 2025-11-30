@@ -22,17 +22,15 @@ const config: Config = {
           900: '#0c4a6e',
         },
       },
-      typography: {
-        DEFAULT: {
-          css: {
-            maxWidth: '100%',
-          },
-        },
-      },
     },
+  },
+  // 性能优化
+  corePlugins: {
+    preflight: true,
   },
   plugins: [],
 }
 export default config
+
 
 

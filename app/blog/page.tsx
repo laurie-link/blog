@@ -1,9 +1,12 @@
 import { Suspense } from 'react'
-import { getAllPosts } from '@/lib/posts'
+import { getAllPostsSummary } from '@/lib/posts'
 import BlogList from '@/components/BlogList'
 
+// ISR - 每30分钟重新验证博客列表页
+export const revalidate = 1800
+
 function BlogContent() {
-  const posts = getAllPosts()
+  const posts = getAllPostsSummary()
 
   return (
     <div className="container mx-auto px-4 py-12">

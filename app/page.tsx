@@ -1,9 +1,12 @@
 import Link from 'next/link'
-import { getAllPosts } from '@/lib/posts'
+import { getRecentPosts } from '@/lib/posts'
 import HomePostList from '@/components/HomePostList'
 
+// ISR - 每30分钟重新验证首页
+export const revalidate = 1800
+
 export default function Home() {
-  const posts = getAllPosts()
+  const posts = getRecentPosts(6)
 
   return (
     <div className="container mx-auto px-4 py-12">
@@ -35,5 +38,6 @@ export default function Home() {
     </div>
   )
 }
+
 
 

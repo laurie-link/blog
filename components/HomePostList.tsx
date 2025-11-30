@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import PostCard from './PostCard'
 
 interface Post {
@@ -19,7 +19,7 @@ interface HomePostListProps {
 export default function HomePostList({ posts }: HomePostListProps) {
   const [displayCount, setDisplayCount] = useState(6)
 
-  const visiblePosts = posts.slice(0, displayCount)
+  const visiblePosts = useMemo(() => posts.slice(0, displayCount), [posts, displayCount])
   const hasMore = displayCount < posts.length
 
   const handleLoadMore = () => {

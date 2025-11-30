@@ -8,12 +8,20 @@ import MobileSidebar from '@/components/MobileSidebar'
 import ShareButton from '@/components/ShareButton'
 import type { Metadata } from 'next'
 
+// 启用 ISR - 只预生成最近的20篇文章，其他按需生成
 export async function generateStaticParams() {
   const posts = getAllPosts()
-  return posts.map((post) => ({
+  // 只预渲染最近的20篇文章
+  return posts.slice(0, 20).map((post) => ({
     slug: post.slug,
   }))
 }
+
+// 启用动态路由参数验证
+export const dynamicParams = true
+
+// ISR 重新验证时间（秒）- 1小时后重新生成
+export const revalidate = 3600
 
 // 从 markdown 内容中提取第一张图片 URL
 function extractFirstImageUrl(content: string): string | null {
@@ -31,8 +39,9 @@ function extractFirstImageUrl(content: string): string | null {
 }
 
 // 生成页面 metadata，包含预加载提示
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const post = getPostBySlug(params.slug)
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params
+  const post = getPostBySlug(slug)
   
   if (!post) {
     return { title: '文章未找到' }
@@ -52,8 +61,9 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   }
 }
 
-export default async function BlogPost({ params }: { params: { slug: string } }) {
-  const post = getPostBySlug(params.slug)
+export default async function BlogPost({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
+  const post = getPostBySlug(slug)
 
   if (!post) {
     notFound()
