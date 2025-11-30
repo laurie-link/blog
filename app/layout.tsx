@@ -17,7 +17,7 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: '我的个人博客',
+  title: '文雅的疯狂',
   description: '分享技术、生活和思考',
   icons: {
     icon: '/favicon.ico',
