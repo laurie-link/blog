@@ -3,18 +3,25 @@
 @tailwind utilities;
 
 @layer base {
+  /* 默认暗色主题 */
   :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 15, 23, 42;
+    --background-end-rgb: 15, 23, 42;
+  }
+
+  /* 明亮主题 */
+  [data-theme='light'] {
     --foreground-rgb: 15, 23, 42;
     --background-start-rgb: 255, 255, 255;
     --background-end-rgb: 255, 255, 255;
   }
 
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --foreground-rgb: 255, 255, 255;
-      --background-start-rgb: 15, 23, 42;
-      --background-end-rgb: 15, 23, 42;
-    }
+  /* 暗色主题（显式声明） */
+  [data-theme='dark'] {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 15, 23, 42;
+    --background-end-rgb: 15, 23, 42;
   }
 
   body {
@@ -130,11 +137,10 @@
     box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   }
 
-  @media (prefers-color-scheme: dark) {
-    .notion-bookmark {
-      border-color: rgb(55, 65, 81);
-      background-color: rgb(31, 41, 55);
-    }
+  [data-theme='dark'] .notion-bookmark,
+  :root:not([data-theme='light']) .notion-bookmark {
+    border-color: rgb(55, 65, 81);
+    background-color: rgb(31, 41, 55);
   }
 
   .notion-bookmark a {
@@ -156,10 +162,9 @@
     background-color: rgb(249, 250, 251);
   }
 
-  @media (prefers-color-scheme: dark) {
-    .notion-bookmark > a > div:hover {
-      background-color: rgb(55, 65, 81);
-    }
+  [data-theme='dark'] .notion-bookmark > a > div:hover,
+  :root:not([data-theme='light']) .notion-bookmark > a > div:hover {
+    background-color: rgb(55, 65, 81);
   }
 
   .notion-bookmark > a > div > div:first-child {
@@ -176,10 +181,9 @@
     white-space: nowrap;
   }
 
-  @media (prefers-color-scheme: dark) {
-    .notion-bookmark > a > div > div:first-child > div:first-child {
-      color: white;
-    }
+  [data-theme='dark'] .notion-bookmark > a > div > div:first-child > div:first-child,
+  :root:not([data-theme='light']) .notion-bookmark > a > div > div:first-child > div:first-child {
+    color: white;
   }
 
   .notion-bookmark > a > div > div:first-child > div:last-child {
@@ -190,10 +194,9 @@
     gap: 0.25rem;
   }
 
-  @media (prefers-color-scheme: dark) {
-    .notion-bookmark > a > div > div:first-child > div:last-child {
-      color: rgb(156, 163, 175);
-    }
+  [data-theme='dark'] .notion-bookmark > a > div > div:first-child > div:last-child,
+  :root:not([data-theme='light']) .notion-bookmark > a > div > div:first-child > div:last-child {
+    color: rgb(156, 163, 175);
   }
 
   .notion-bookmark > a > div > div:last-child {
@@ -232,15 +235,15 @@
     box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   }
 
-  @media (prefers-color-scheme: dark) {
-    .plain-link-card a {
-      background: linear-gradient(to right, rgba(12, 74, 110, 0.2), rgba(29, 78, 216, 0.2));
-      border-color: rgb(30, 58, 138);
-    }
+  [data-theme='dark'] .plain-link-card a,
+  :root:not([data-theme='light']) .plain-link-card a {
+    background: linear-gradient(to right, rgba(12, 74, 110, 0.2), rgba(29, 78, 216, 0.2));
+    border-color: rgb(30, 58, 138);
+  }
 
-    .plain-link-card a:hover {
-      border-color: rgb(37, 99, 235);
-    }
+  [data-theme='dark'] .plain-link-card a:hover,
+  :root:not([data-theme='light']) .plain-link-card a:hover {
+    border-color: rgb(37, 99, 235);
   }
 
   .plain-link-card .link-icon {
@@ -250,10 +253,9 @@
     color: rgb(37, 99, 235);
   }
 
-  @media (prefers-color-scheme: dark) {
-    .plain-link-card .link-icon {
-      color: rgb(96, 165, 250);
-    }
+  [data-theme='dark'] .plain-link-card .link-icon,
+  :root:not([data-theme='light']) .plain-link-card .link-icon {
+    color: rgb(96, 165, 250);
   }
 
   .plain-link-card .link-text {
@@ -265,10 +267,9 @@
     white-space: nowrap;
   }
 
-  @media (prefers-color-scheme: dark) {
-    .plain-link-card .link-text {
-      color: rgb(209, 213, 219);
-    }
+  [data-theme='dark'] .plain-link-card .link-text,
+  :root:not([data-theme='light']) .plain-link-card .link-text {
+    color: rgb(209, 213, 219);
   }
 
   .plain-link-card .external-icon {
@@ -278,8 +279,7 @@
     color: rgb(107, 114, 128);
   }
 
-@media (prefers-color-scheme: dark) {
-  .plain-link-card .external-icon {
-    color: rgb(156, 163, 175);
-  }
+[data-theme='dark'] .plain-link-card .external-icon,
+:root:not([data-theme='light']) .plain-link-card .external-icon {
+  color: rgb(156, 163, 175);
 }
