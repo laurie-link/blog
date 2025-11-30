@@ -299,19 +299,7 @@ function rehypeStandaloneLinkStyle() {
 }
 
 /**
- * 生成优化后的图片 URL（使用 Next.js Image Optimization API）
- */
-function generateOptimizedImageUrl(originalUrl: string, width: number, quality: number = 75): string {
-  const params = new URLSearchParams({
-    url: originalUrl,
-    w: width.toString(),
-    q: quality.toString(),
-  })
-  return `/_next/image?${params.toString()}`
-}
-
-/**
- * 自定义 rehype 插件：为图片添加宽高、缩略图和 WebP 支持
+ * 自定义 rehype 插件：为图片添加宽高、懒加载和点击放大功能
  */
 function rehypeImageSize() {
   return async function transformer(tree: Root) {
@@ -351,25 +339,13 @@ function rehypeImageSize() {
 
         node.properties = node.properties || {}
 
-        // 保存原始图片 URL（用于灯箱查看）
+        // 保存原始图片 URL（用于灯箱查看原图）
         node.properties['data-original-src'] = url
 
-        // 生成缩略图 URL
-        // 使用合适的缩略图宽度（根据图片实际尺寸）
-        const thumbnailWidth = size ? Math.min(size.width, 800) : 800
-        const thumbnailUrl = generateOptimizedImageUrl(url, thumbnailWidth, 75)
-
-        // 将 src 替换为优化后的缩略图 URL
-        node.properties.src = thumbnailUrl
-
-        // 添加 srcset 以支持不同屏幕密度
-        if (size) {
-          const srcsetEntries = [
-            `${generateOptimizedImageUrl(url, thumbnailWidth, 75)} 1x`,
-            `${generateOptimizedImageUrl(url, thumbnailWidth * 2, 75)} 2x`,
-          ]
-          node.properties.srcset = srcsetEntries.join(', ')
-        }
+        // 直接使用原图 URL
+        // 注意：某些图片 URL 包含查询参数，通过 Next.js Image Optimization API 可能返回 400 错误
+        // 所以这里直接使用原图，配合懒加载来优化性能
+        node.properties.src = url
 
         // 添加样式类以便识别和点击放大
         const existingClass = node.properties.className

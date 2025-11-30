@@ -26,7 +26,8 @@
       "mcp__playwright__browser_console_messages",
       "mcp__playwright__browser_snapshot",
       "Bash(timeout /t 5 /nobreak)",
-      "Bash(netstat:*)"
+      "Bash(netstat:*)",
+      "Bash(timeout:*)"
     ],
     "deny": [],
     "ask": []
