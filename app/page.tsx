@@ -33,11 +33,21 @@ export default function Home() {
 
       {/* Featured Posts */}
       <section className="mb-16">
-        <h2 className="text-3xl font-bold mb-8">最新文章</h2>
+        <div className="flex items-center justify-between mb-8">
+          <h2 className="text-3xl font-bold">最新文章</h2>
+          {/* 大屏显示在标题旁边 */}
+          <Link
+            href="/blog"
+            className="text-primary-600 hover:text-primary-800 font-medium hidden md:block"
+          >
+            查看全部 →
+          </Link>
+        </div>
 
         <HomePostList posts={posts} />
 
-        <div className="mt-8 text-right">
+        {/* 小屏显示在底部 */}
+        <div className="mt-8 text-right md:hidden">
           <Link
             href="/blog"
             className="text-primary-600 hover:text-primary-800 font-medium inline-block"
