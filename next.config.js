@@ -20,14 +20,39 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'img.aiexplorernote.com',
       },
+      {
+        protocol: 'https',
+        hostname: '**.imgur.com',
+      },
+      {
+        protocol: 'https',
+        hostname: '**.cloudinary.com',
+      },
+      {
+        protocol: 'https',
+        hostname: '**.githubusercontent.com',
+      },
+      {
+        protocol: 'https',
+        hostname: '**.unsplash.com',
+      },
+      // 允许任意 HTTPS 图片源（适用于博客）
+      {
+        protocol: 'https',
+        hostname: '**',
+      },
     ],
-    // 图片格式优化 - 优先使用 avif 和 webp
-    formats: ['image/avif', 'image/webp'],
+    // 图片格式优化 - 优先使用 webp（更好的浏览器兼容性）
+    formats: ['image/webp'],
     // 图片尺寸优化
     deviceSizes: [640, 750, 828, 1080, 1200, 1920],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     // 最小化缓存时间（秒）
     minimumCacheTTL: 31536000, // 1年
+    // 未优化的图片大小限制警告阈值
+    dangerouslyAllowSVG: true,
+    contentDispositionType: 'attachment',
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
 
   // 添加缓存控制头
