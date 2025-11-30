@@ -9,7 +9,30 @@ interface Post {
   category?: string
 }
 
-export default function PostCard({ post }: { post: Post }) {
+interface PostCardProps {
+  post: Post
+  currentPage?: number
+  selectedCategory?: string | null
+  selectedTag?: string | null
+}
+
+export default function PostCard({ post, currentPage, selectedCategory, selectedTag }: PostCardProps) {
+  // 构建返回链接的查询参数
+  const buildReturnUrl = () => {
+    const params = new URLSearchParams()
+    if (currentPage && currentPage > 1) {
+      params.set('page', currentPage.toString())
+    }
+    if (selectedCategory) {
+      params.set('category', selectedCategory)
+    }
+    if (selectedTag) {
+      params.set('tag', selectedTag)
+    }
+    return params.toString()
+  }
+
+  const returnParams = buildReturnUrl()
   return (
     <article className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-shadow overflow-hidden relative">
       <div className="p-6 pb-14">
@@ -33,7 +56,7 @@ export default function PostCard({ post }: { post: Post }) {
           ))}
         </div>
 
-        <Link href={`/blog/${post.slug}`}>
+        <Link href={`/blog/${post.slug}${returnParams ? `?from=${encodeURIComponent(returnParams)}` : ''}`}>
           <h3 className="text-2xl font-bold mb-2 hover:text-primary-600 transition-colors">
             {post.title}
           </h3>

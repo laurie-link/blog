@@ -3,7 +3,8 @@
 import { useEffect, useState } from 'react'
 
 interface TocItem {
-  id: string
+  id: string // 用于跳转的真实id
+  key: string // 用于React key的唯一标识
   text: string
   level: number
 }
@@ -26,14 +27,10 @@ export default function TableOfContents({ htmlContent }: TableOfContentsProps) {
     const items: TocItem[] = Array.from(headings).map((heading, index) => {
       const level = parseInt(heading.tagName.substring(1))
       const text = heading.textContent || ''
-      let id = heading.id
+      const id = heading.id || `heading-${index}` // 保留原始id用于跳转
+      const key = `toc-${index}` // 使用索引确保key唯一
 
-      // 如果没有id，生成一个
-      if (!id) {
-        id = `heading-${index}`
-      }
-
-      return { id, text, level }
+      return { id, key, text, level }
     })
 
     setTocItems(items)
@@ -135,7 +132,7 @@ export default function TableOfContents({ htmlContent }: TableOfContentsProps) {
 
               return (
                 <li
-                  key={item.id}
+                  key={item.key}
                   className="list-none m-0"
                   style={{ paddingLeft: `${(item.level - 1) * 16}px` }}
                 >

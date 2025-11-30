@@ -2,11 +2,16 @@ import { getPostBySlug, getAllPosts } from '@/lib/posts'
 import { markdownToHtml } from '@/lib/markdown'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import MarkdownContent from '@/components/MarkdownContent'
-import TableOfContents from '@/components/TableOfContents'
-import MobileSidebar from '@/components/MobileSidebar'
-import ShareButton from '@/components/ShareButton'
+import dynamic from 'next/dynamic'
 import type { Metadata } from 'next'
+
+// 动态导入组件以减少初始包大小
+const MarkdownContent = dynamic(() => import('@/components/MarkdownContent'), {
+  loading: () => <div className="animate-pulse bg-gray-200 dark:bg-gray-700 h-96 rounded" />,
+})
+const TableOfContents = dynamic(() => import('@/components/TableOfContents'))
+const MobileSidebar = dynamic(() => import('@/components/MobileSidebar'))
+const ShareButton = dynamic(() => import('@/components/ShareButton'))
 
 // 启用 ISR - 只预生成最近的20篇文章，其他按需生成
 export async function generateStaticParams() {
@@ -61,8 +66,15 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   }
 }
 
-export default async function BlogPost({ params }: { params: Promise<{ slug: string }> }) {
+export default async function BlogPost({
+  params,
+  searchParams
+}: {
+  params: Promise<{ slug: string }>
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>
+}) {
   const { slug } = await params
+  const resolvedSearchParams = await searchParams
   const post = getPostBySlug(slug)
 
   if (!post) {
@@ -71,9 +83,13 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
 
   // 在服务器端将 Markdown 转换为 HTML
   const htmlContent = await markdownToHtml(post.content)
-  
+
   // 提取第一张图片用于预加载
   const firstImageUrl = extractFirstImageUrl(post.content)
+
+  // 构建返回链接
+  const fromParams = resolvedSearchParams.from as string | undefined
+  const backUrl = fromParams ? `/blog?${fromParams}` : '/blog'
 
   return (
     <>
@@ -91,7 +107,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
         <div className="max-w-7xl mx-auto">
           {/* Back Link */}
           <Link
-            href="/blog"
+            href={backUrl}
             className="inline-flex items-center text-primary-600 hover:text-primary-800 mb-8"
           >
             ← 返回博客列表
@@ -154,7 +170,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
               <footer className="mt-16 pt-8 border-t border-gray-200 dark:border-gray-700">
                 <div className="flex justify-between items-center">
                   <Link
-                    href="/blog"
+                    href={backUrl}
                     className="text-primary-600 hover:text-primary-800 font-medium"
                   >
                     ← 查看更多文章

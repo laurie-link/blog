@@ -90,6 +90,7 @@ export default function BlogList({ posts }: BlogListProps) {
   // 清除标签筛选时，同时清除 URL 参数
   const handleClearTag = () => {
     setSelectedTag(null)
+    setCurrentPage(1)
     router.push('/blog')
   }
 
@@ -114,11 +115,6 @@ export default function BlogList({ posts }: BlogListProps) {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
-  // 重置页码（筛选条件改变时）
-  useEffect(() => {
-    setCurrentPage(1)
-  }, [selectedCategory, searchQuery, selectedTag])
-
   // 侧边栏内容（用于桌面端和移动端复用）
   const sidebarContent = (
     <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6">
@@ -129,9 +125,11 @@ export default function BlogList({ posts }: BlogListProps) {
         <button
           onClick={() => {
             setSelectedCategory(null)
+            setCurrentPage(1)
             // 清除URL参数
             const params = new URLSearchParams(searchParams.toString())
             params.delete('category')
+            params.delete('page')
             router.push(`/blog?${params.toString()}`)
           }}
           className={`w-full text-left px-4 py-2 rounded-lg transition-colors ${
@@ -150,10 +148,12 @@ export default function BlogList({ posts }: BlogListProps) {
               key={category.name}
               onClick={() => {
                 setSelectedCategory(category.name)
+                setCurrentPage(1)
                 // 更新URL参数
                 const params = new URLSearchParams(searchParams.toString())
                 params.set('category', category.name)
                 params.delete('tag') // 清除标签筛选
+                params.delete('page') // 重置页码
                 router.push(`/blog?${params.toString()}`)
               }}
               className={`w-full text-left px-4 py-2 rounded-lg transition-colors ${
@@ -201,7 +201,10 @@ export default function BlogList({ posts }: BlogListProps) {
               type="text"
               placeholder="搜索文章标题、内容或标签..."
               value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
+              onChange={(e) => {
+                setSearchQuery(e.target.value)
+                setCurrentPage(1)
+              }}
               className="w-full px-4 py-3 pl-12 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-gray-900 dark:text-gray-100"
             />
             <svg
@@ -219,7 +222,10 @@ export default function BlogList({ posts }: BlogListProps) {
             </svg>
             {searchQuery && (
               <button
-                onClick={() => setSearchQuery('')}
+                onClick={() => {
+                  setSearchQuery('')
+                  setCurrentPage(1)
+                }}
                 className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -240,8 +246,10 @@ export default function BlogList({ posts }: BlogListProps) {
                 <button
                   onClick={() => {
                     setSelectedCategory(null)
+                    setCurrentPage(1)
                     const params = new URLSearchParams(searchParams.toString())
                     params.delete('category')
+                    params.delete('page')
                     router.push(`/blog?${params.toString()}`)
                   }}
                   className="ml-2 hover:text-primary-900 dark:hover:text-primary-100"
@@ -275,8 +283,9 @@ export default function BlogList({ posts }: BlogListProps) {
             <button
               onClick={() => {
                 setSelectedCategory(null)
-                handleClearTag()
+                setSelectedTag(null)
                 setSearchQuery('')
+                setCurrentPage(1)
                 router.push('/blog')
               }}
               className="text-sm text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 underline"
@@ -291,7 +300,13 @@ export default function BlogList({ posts }: BlogListProps) {
           <>
             <div className="grid md:grid-cols-2 gap-6">
               {paginatedPosts.map((post) => (
-                <PostCard key={post.slug} post={post} />
+                <PostCard
+                  key={post.slug}
+                  post={post}
+                  currentPage={currentPage}
+                  selectedCategory={selectedCategory}
+                  selectedTag={selectedTag}
+                />
               ))}
             </div>
 
@@ -356,8 +371,9 @@ export default function BlogList({ posts }: BlogListProps) {
               <button
                 onClick={() => {
                   setSelectedCategory(null)
-                  handleClearTag()
+                  setSelectedTag(null)
                   setSearchQuery('')
+                  setCurrentPage(1)
                   router.push('/blog')
                 }}
                 className="text-primary-600 dark:text-primary-400 hover:underline"

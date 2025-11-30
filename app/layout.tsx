@@ -10,6 +10,10 @@ const inter = Inter({
   display: 'swap',
   preload: true,
   adjustFontFallback: true,
+  // 优化字体变量
+  variable: '--font-inter',
+  // 只加载需要的字重
+  weight: ['400', '500', '600', '700'],
 })
 
 export const metadata: Metadata = {

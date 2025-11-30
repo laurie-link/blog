@@ -1,6 +1,17 @@
 import Link from 'next/link'
+import dynamic from 'next/dynamic'
 import { getRecentPosts } from '@/lib/posts'
-import HomePostList from '@/components/HomePostList'
+
+// 动态导入以优化性能
+const HomePostList = dynamic(() => import('@/components/HomePostList'), {
+  loading: () => (
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {[...Array(6)].map((_, i) => (
+        <div key={i} className="animate-pulse bg-gray-200 dark:bg-gray-700 h-64 rounded-xl" />
+      ))}
+    </div>
+  ),
+})
 
 // ISR - 每30分钟重新验证首页
 export const revalidate = 1800
@@ -22,17 +33,18 @@ export default function Home() {
 
       {/* Featured Posts */}
       <section className="mb-16">
-        <div className="flex items-center justify-between mb-8">
-          <h2 className="text-3xl font-bold">最新文章</h2>
+        <h2 className="text-3xl font-bold mb-8">最新文章</h2>
+
+        <HomePostList posts={posts} />
+
+        <div className="mt-8 text-right">
           <Link
             href="/blog"
-            className="text-primary-600 hover:text-primary-800 font-medium"
+            className="text-primary-600 hover:text-primary-800 font-medium inline-block"
           >
             查看全部 →
           </Link>
         </div>
-
-        <HomePostList posts={posts} />
       </section>
 
     </div>

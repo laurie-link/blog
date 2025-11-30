@@ -23,6 +23,11 @@ const nextConfig = {
     ],
     // 图片格式优化 - 优先使用 avif 和 webp
     formats: ['image/avif', 'image/webp'],
+    // 图片尺寸优化
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    // 最小化缓存时间（秒）
+    minimumCacheTTL: 31536000, // 1年
   },
 
   // 添加缓存控制头
@@ -68,10 +73,12 @@ const nextConfig = {
   experimental: {
     // 优化包导入
     optimizePackageImports: ['unified', 'remark-parse', 'remark-gfm', 'rehype-raw'],
+    // 优化字体加载
+    optimizeCss: true,
   },
 
   // 外部包处理 (Next.js 16+)
-  serverExternalPackages: ['probe-image-size', 'needle'],
+  serverExternalPackages: ['probe-image-size', 'needle', 'sharp'],
 }
 
 module.exports = nextConfig
