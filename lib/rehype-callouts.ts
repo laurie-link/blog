@@ -38,7 +38,7 @@ export function rehypeCallouts() {
 
       // 收集内容节点
       const contentParagraphs: Element[] = []
-      let currentIndex = index
+      let currentIndex: number = index as number
       let foundEnd = false
 
       // 处理第一个段落（移除前缀）
@@ -131,9 +131,9 @@ export function rehypeCallouts() {
         // 记录需要替换的节点
         nodesToReplace.push({
           parent: parent as Element | Root,
-          index,
+          index: index as number,
           replacement: calloutDiv,
-          removeCount: currentIndex - index
+          removeCount: currentIndex - (index as number)
         })
       }
     })
