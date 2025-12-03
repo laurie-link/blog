@@ -36,89 +36,527 @@
 }
 
 @layer components {
-  /* Markdown 样式 - 使用组合类减少CSS大小 */
+  /* Markdown 样式 - 专业的博客文章排版 */
   .markdown-body {
     @apply text-base max-w-none;
+    line-height: 1.75;
+    color: rgb(55, 65, 81);
   }
 
+  [data-theme='dark'] .markdown-body,
+  :root:not([data-theme='light']) .markdown-body {
+    color: rgb(229, 231, 235);
+  }
+
+  /* 标题样式 - 更有层次感 */
   .markdown-body h1 {
-    @apply text-4xl font-bold mt-8 mb-6 text-gray-900 dark:text-white border-b-4 border-primary-500 pb-3;
+    @apply text-4xl font-extrabold mt-12 mb-6 text-gray-900 dark:text-white;
+    position: relative;
+    padding-bottom: 0.75rem;
+  }
+
+  .markdown-body h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(to right, rgb(59, 130, 246), rgb(147, 51, 234));
+    border-radius: 2px;
   }
 
   .markdown-body h2 {
-    @apply text-3xl font-bold mt-8 mb-4 text-gray-900 dark:text-white border-b-2 border-gray-300 dark:border-gray-700 pb-2;
+    @apply text-3xl font-bold mt-10 mb-5 text-gray-900 dark:text-white;
+    position: relative;
+    padding: 0.75rem 1rem 0.75rem 1.5rem;
+    background: linear-gradient(to right, rgba(59, 130, 246, 0.08), transparent);
+    border-left: 5px solid rgb(59, 130, 246);
+    border-radius: 0 8px 8px 0;
+  }
+
+  [data-theme='dark'] .markdown-body h2,
+  :root:not([data-theme='light']) .markdown-body h2 {
+    background: linear-gradient(to right, rgba(59, 130, 246, 0.15), transparent);
+  }
+
+  .markdown-body h2::before {
+    content: '§';
+    position: absolute;
+    left: -0.25rem;
+    color: rgb(59, 130, 246);
+    font-size: 1.2em;
+    opacity: 0.6;
   }
 
   .markdown-body h3 {
-    @apply text-2xl font-bold mt-6 mb-3 text-gray-900 dark:text-white;
+    @apply text-2xl font-bold mt-8 mb-4;
+    position: relative;
+    padding-bottom: 0.5rem;
+    background: linear-gradient(90deg, rgb(59, 130, 246), rgb(147, 51, 234), rgb(236, 72, 153));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .markdown-body h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, rgb(59, 130, 246) 0%, rgb(147, 51, 234) 50%, transparent 100%);
+    border-radius: 2px;
   }
 
   .markdown-body h4 {
-    @apply text-xl font-bold mt-4 mb-2 text-gray-900 dark:text-white;
+    @apply text-xl font-semibold mt-6 mb-3 text-gray-900 dark:text-white;
   }
 
+  .markdown-body h5 {
+    @apply text-lg font-semibold mt-4 mb-2 text-gray-900 dark:text-white;
+  }
+
+  .markdown-body h6 {
+    @apply text-base font-semibold mt-4 mb-2 text-gray-700 dark:text-gray-300;
+  }
+
+  /* 段落样式 - 增加可读性 */
   .markdown-body p {
-    @apply mb-4 leading-relaxed text-gray-700 dark:text-gray-300 text-lg;
+    @apply mb-6 leading-loose text-gray-700 dark:text-gray-300;
+    font-size: 1.0625rem;
+    text-align: justify;
   }
 
+  /* 链接样式 - 传统下划线样式 */
   .markdown-body a {
-    @apply text-primary-600 dark:text-primary-400 hover:text-primary-800 dark:hover:text-primary-300 underline decoration-2 underline-offset-2 transition-colors;
+    @apply text-blue-600 dark:text-blue-400 underline decoration-blue-600 dark:decoration-blue-400 decoration-2 underline-offset-2 transition-colors duration-200;
   }
 
+  .markdown-body a:hover {
+    @apply text-blue-800 dark:text-blue-200 decoration-blue-800 dark:decoration-blue-200;
+  }
+
+  /* 列表样式 - 更清晰的层级 */
   .markdown-body ul {
-    @apply mb-6 ml-6 space-y-2 list-disc;
+    @apply mb-6 ml-6 space-y-3;
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .markdown-body ul > li {
+    @apply text-gray-700 dark:text-gray-300 leading-relaxed;
+    position: relative;
+    padding-left: 1.75rem;
+  }
+
+  .markdown-body ul > li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.6em;
+    width: 0.5rem;
+    height: 0.5rem;
+    background: linear-gradient(135deg, rgb(59, 130, 246), rgb(147, 51, 234));
+    border-radius: 50%;
   }
 
   .markdown-body ol {
-    @apply mb-6 ml-6 space-y-2 list-decimal;
+    @apply mb-6 ml-6 space-y-3;
+    counter-reset: list-counter;
+    list-style: none;
+    padding-left: 0;
   }
 
-  .markdown-body li {
-    @apply text-gray-700 dark:text-gray-300 leading-relaxed pl-2;
+  .markdown-body ol > li {
+    @apply text-gray-700 dark:text-gray-300 leading-relaxed;
+    position: relative;
+    padding-left: 2rem;
+    counter-increment: list-counter;
   }
 
+  .markdown-body ol > li::before {
+    content: counter(list-counter);
+    position: absolute;
+    left: 0;
+    top: 0;
+    @apply font-semibold text-sm;
+    color: white;
+    background: linear-gradient(135deg, rgb(59, 130, 246), rgb(147, 51, 234));
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* 嵌套列表 */
+  .markdown-body li > ul,
+  .markdown-body li > ol {
+    @apply mt-3 mb-0;
+  }
+
+  /* 行内代码 - 更醒目的样式 */
   .markdown-body code {
-    @apply px-2 py-0.5 bg-gray-100 dark:bg-gray-800 text-primary-600 dark:text-primary-400 rounded text-sm font-mono border border-gray-200 dark:border-gray-700;
+    @apply px-2 py-1 rounded-md font-mono text-sm;
+    background: linear-gradient(135deg, rgb(243, 244, 246), rgb(229, 231, 235));
+    color: rgb(220, 38, 38);
+    border: 1px solid rgb(229, 231, 235);
+    font-weight: 500;
   }
 
+  [data-theme='dark'] .markdown-body code,
+  :root:not([data-theme='light']) .markdown-body code {
+    background: linear-gradient(135deg, rgb(31, 41, 55), rgb(17, 24, 39));
+    color: rgb(252, 165, 165);
+    border-color: rgb(55, 65, 81);
+  }
+
+  /* 代码块 - 增强的视觉效果和语法高亮 */
   .markdown-body pre {
-    @apply mb-6 p-4 bg-gray-900 dark:bg-gray-950 rounded-lg overflow-x-auto border border-gray-700 shadow-lg;
+    @apply mb-6 rounded-xl overflow-hidden shadow-2xl;
+    background: rgb(13, 17, 23);
+    border: 1px solid rgb(48, 54, 61);
+    position: relative;
+  }
+
+  [data-theme='light'] .markdown-body pre {
+    background: rgb(246, 248, 250);
+    border-color: rgb(208, 215, 222);
   }
 
   .markdown-body pre code {
-    @apply px-0 py-0 bg-transparent text-gray-100 border-0 text-sm;
+    @apply block p-6 overflow-x-auto text-sm leading-relaxed;
+    background: transparent;
+    border: none;
+    font-weight: normal;
+    counter-reset: line;
   }
 
+  /* 代码行 */
+  .markdown-body pre code [data-line] {
+    @apply px-4 border-l-2 border-transparent;
+    display: inline-block;
+    width: 100%;
+  }
+
+  /* 高亮的代码行 */
+  .markdown-body pre code [data-line].line--highlighted {
+    background-color: rgba(59, 130, 246, 0.1);
+    border-left-color: rgb(59, 130, 246);
+  }
+
+  /* 高亮的代码字符 */
+  .markdown-body pre code .chars--highlighted {
+    @apply bg-blue-500/20 px-1 rounded;
+    box-shadow: 0 0 0 1px rgb(59, 130, 246);
+  }
+
+  /* 代码块滚动条美化 */
+  .markdown-body pre code::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  .markdown-body pre code::-webkit-scrollbar-track {
+    background: rgb(31, 41, 55);
+    border-radius: 4px;
+  }
+
+  [data-theme='light'] .markdown-body pre code::-webkit-scrollbar-track {
+    background: rgb(243, 244, 246);
+  }
+
+  .markdown-body pre code::-webkit-scrollbar-thumb {
+    background: rgb(75, 85, 99);
+    border-radius: 4px;
+  }
+
+  [data-theme='light'] .markdown-body pre code::-webkit-scrollbar-thumb {
+    background: rgb(209, 213, 219);
+  }
+
+  .markdown-body pre code::-webkit-scrollbar-thumb:hover {
+    background: rgb(107, 114, 128);
+  }
+
+  [data-theme='light'] .markdown-body pre code::-webkit-scrollbar-thumb:hover {
+    background: rgb(156, 163, 175);
+  }
+
+  /* 语法高亮的 token 样式增强 */
+  .markdown-body pre code [data-token] {
+    transition: all 0.2s ease;
+  }
+
+  .markdown-body pre code [data-token]:hover {
+    background-color: rgba(59, 130, 246, 0.1);
+    border-radius: 2px;
+  }
+
+  /* 引用块 - 更有设计感 */
   .markdown-body blockquote {
-    @apply mb-6 pl-4 py-2 border-l-4 border-primary-500 bg-primary-50 dark:bg-gray-800 italic text-gray-700 dark:text-gray-300 rounded-r-lg;
+    @apply mb-6 py-4 px-6 rounded-r-xl;
+    position: relative;
+    background: linear-gradient(to right, rgba(59, 130, 246, 0.1), rgba(147, 51, 234, 0.05));
+    border-left: 4px solid rgb(59, 130, 246);
   }
 
+  [data-theme='dark'] .markdown-body blockquote,
+  :root:not([data-theme='light']) .markdown-body blockquote {
+    background: linear-gradient(to right, rgba(59, 130, 246, 0.15), rgba(147, 51, 234, 0.1));
+  }
+
+  .markdown-body blockquote::before {
+    content: '"';
+    position: absolute;
+    top: 0;
+    left: 1rem;
+    font-size: 3rem;
+    color: rgb(59, 130, 246);
+    opacity: 0.3;
+    font-family: Georgia, serif;
+    line-height: 1;
+  }
+
+  .markdown-body blockquote p {
+    @apply mb-0 text-gray-700 dark:text-gray-300;
+    font-style: italic;
+  }
+
+  .markdown-body blockquote p:last-child {
+    @apply mb-0;
+  }
+
+  /* 表格 - 现代化设计 */
   .markdown-body table {
-    @apply mb-6 min-w-full divide-y divide-gray-300 dark:divide-gray-700 border border-gray-300 dark:border-gray-700 rounded-lg overflow-hidden;
+    @apply mb-8 w-full rounded-xl overflow-hidden shadow-lg;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid rgb(229, 231, 235);
+  }
+
+  [data-theme='dark'] .markdown-body table,
+  :root:not([data-theme='light']) .markdown-body table {
+    border-color: rgb(55, 65, 81);
   }
 
   .markdown-body thead {
-    @apply bg-gray-100 dark:bg-gray-800;
+    background: linear-gradient(to bottom, rgb(249, 250, 251), rgb(243, 244, 246));
+  }
+
+  [data-theme='dark'] .markdown-body thead,
+  :root:not([data-theme='light']) .markdown-body thead {
+    background: linear-gradient(to bottom, rgb(31, 41, 55), rgb(17, 24, 39));
   }
 
   .markdown-body th {
-    @apply px-4 py-3 text-left text-sm font-semibold text-gray-900 dark:text-white;
+    @apply px-6 py-4 text-left text-sm font-bold text-gray-900 dark:text-white;
+    border-bottom: 2px solid rgb(59, 130, 246);
+  }
+
+  .markdown-body tbody tr {
+    @apply transition-colors duration-150;
+  }
+
+  .markdown-body tbody tr:hover {
+    background-color: rgba(59, 130, 246, 0.05);
+  }
+
+  [data-theme='dark'] .markdown-body tbody tr:hover,
+  :root:not([data-theme='light']) .markdown-body tbody tr:hover {
+    background-color: rgba(59, 130, 246, 0.1);
+  }
+
+  .markdown-body tbody tr:not(:last-child) {
+    border-bottom: 1px solid rgb(229, 231, 235);
+  }
+
+  [data-theme='dark'] .markdown-body tbody tr:not(:last-child),
+  :root:not([data-theme='light']) .markdown-body tbody tr:not(:last-child) {
+    border-bottom-color: rgb(55, 65, 81);
   }
 
   .markdown-body td {
-    @apply px-4 py-3 text-sm text-gray-700 dark:text-gray-300;
+    @apply px-6 py-4 text-sm text-gray-700 dark:text-gray-300;
   }
 
+  /* 图片 - 优化展示效果 */
   .markdown-body img {
-    @apply mb-6 rounded-lg shadow-lg max-w-full md:max-w-3xl max-h-[800px] h-auto mx-auto border border-gray-200 dark:border-gray-700;
+    @apply mb-8 rounded-xl shadow-2xl max-w-full h-auto mx-auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgb(229, 231, 235);
   }
 
+  [data-theme='dark'] .markdown-body img,
+  :root:not([data-theme='light']) .markdown-body img {
+    border-color: rgb(55, 65, 81);
+  }
+
+  .markdown-body img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  }
+
+  /* 加粗文本 */
   .markdown-body strong {
     @apply font-bold text-gray-900 dark:text-white;
   }
 
+  /* 斜体文本 */
+  .markdown-body em {
+    @apply italic text-gray-700 dark:text-gray-300;
+  }
+
+  /* 删除线 */
+  .markdown-body del {
+    @apply line-through text-gray-500 dark:text-gray-400;
+  }
+
+  /* 水平分割线 */
   .markdown-body hr {
-    @apply my-8 border-t-2 border-gray-300 dark:border-gray-700;
+    @apply my-12 border-0;
+    height: 2px;
+    background: linear-gradient(to right, transparent, rgb(59, 130, 246), rgb(147, 51, 234), transparent);
+  }
+
+  /* 任务列表 */
+  .markdown-body input[type="checkbox"] {
+    @apply mr-2;
+    accent-color: rgb(59, 130, 246);
+  }
+
+  /* Note 提示框样式 - 蓝色信息提示 */
+  .markdown-body .note,
+  .markdown-body blockquote.note {
+    @apply mb-6 p-5 rounded-xl;
+    position: relative;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(96, 165, 250, 0.05));
+    border: 2px solid rgba(59, 130, 246, 0.3);
+    border-left: 5px solid rgb(59, 130, 246);
+    box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.1);
+  }
+
+  [data-theme='dark'] .markdown-body .note,
+  [data-theme='dark'] .markdown-body blockquote.note,
+  :root:not([data-theme='light']) .markdown-body .note,
+  :root:not([data-theme='light']) .markdown-body blockquote.note {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(96, 165, 250, 0.08));
+    border-color: rgba(59, 130, 246, 0.4);
+  }
+
+  .markdown-body .note::before,
+  .markdown-body blockquote.note::before {
+    content: '📝';
+    position: absolute;
+    top: 1.25rem;
+    left: 1.25rem;
+    font-size: 1.5rem;
+  }
+
+  .markdown-body .note > *:first-child,
+  .markdown-body blockquote.note > *:first-child {
+    margin-top: 0;
+    padding-left: 3rem;
+  }
+
+  .markdown-body .note p,
+  .markdown-body blockquote.note p {
+    @apply text-gray-700 dark:text-gray-300;
+    font-style: normal;
+  }
+
+  /* Tips 提示框样式 - 绿色/黄色技巧提示 */
+  .markdown-body .tips,
+  .markdown-body .tip,
+  .markdown-body blockquote.tips,
+  .markdown-body blockquote.tip {
+    @apply mb-6 p-5 rounded-xl;
+    position: relative;
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(74, 222, 128, 0.05));
+    border: 2px solid rgba(34, 197, 94, 0.3);
+    border-left: 5px solid rgb(34, 197, 94);
+    box-shadow: 0 4px 6px -1px rgba(34, 197, 94, 0.1);
+  }
+
+  [data-theme='dark'] .markdown-body .tips,
+  [data-theme='dark'] .markdown-body .tip,
+  [data-theme='dark'] .markdown-body blockquote.tips,
+  [data-theme='dark'] .markdown-body blockquote.tip,
+  :root:not([data-theme='light']) .markdown-body .tips,
+  :root:not([data-theme='light']) .markdown-body .tip,
+  :root:not([data-theme='light']) .markdown-body blockquote.tips,
+  :root:not([data-theme='light']) .markdown-body blockquote.tip {
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.15), rgba(74, 222, 128, 0.08));
+    border-color: rgba(34, 197, 94, 0.4);
+  }
+
+  .markdown-body .tips::before,
+  .markdown-body .tip::before,
+  .markdown-body blockquote.tips::before,
+  .markdown-body blockquote.tip::before {
+    content: '💡';
+    position: absolute;
+    top: 1.25rem;
+    left: 1.25rem;
+    font-size: 1.5rem;
+  }
+
+  .markdown-body .tips > *:first-child,
+  .markdown-body .tip > *:first-child,
+  .markdown-body blockquote.tips > *:first-child,
+  .markdown-body blockquote.tip > *:first-child {
+    margin-top: 0;
+    padding-left: 3rem;
+  }
+
+  .markdown-body .tips p,
+  .markdown-body .tip p,
+  .markdown-body blockquote.tips p,
+  .markdown-body blockquote.tip p {
+    @apply text-gray-700 dark:text-gray-300;
+    font-style: normal;
+  }
+
+  /* Warning 警告框样式 - 黄色警告提示 */
+  .markdown-body .warning,
+  .markdown-body blockquote.warning {
+    @apply mb-6 p-5 rounded-xl;
+    position: relative;
+    background: linear-gradient(135deg, rgba(234, 179, 8, 0.1), rgba(250, 204, 21, 0.05));
+    border: 2px solid rgba(234, 179, 8, 0.3);
+    border-left: 5px solid rgb(234, 179, 8);
+    box-shadow: 0 4px 6px -1px rgba(234, 179, 8, 0.1);
+  }
+
+  [data-theme='dark'] .markdown-body .warning,
+  [data-theme='dark'] .markdown-body blockquote.warning,
+  :root:not([data-theme='light']) .markdown-body .warning,
+  :root:not([data-theme='light']) .markdown-body blockquote.warning {
+    background: linear-gradient(135deg, rgba(234, 179, 8, 0.15), rgba(250, 204, 21, 0.08));
+    border-color: rgba(234, 179, 8, 0.4);
+  }
+
+  .markdown-body .warning::before,
+  .markdown-body blockquote.warning::before {
+    content: '⚠️';
+    position: absolute;
+    top: 1.25rem;
+    left: 1.25rem;
+    font-size: 1.5rem;
+  }
+
+  .markdown-body .warning > *:first-child,
+  .markdown-body blockquote.warning > *:first-child {
+    margin-top: 0;
+    padding-left: 3rem;
+  }
+
+  .markdown-body .warning p,
+  .markdown-body blockquote.warning p {
+    @apply text-gray-700 dark:text-gray-300;
+    font-style: normal;
   }
 }
 

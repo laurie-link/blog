@@ -4,9 +4,11 @@ import remarkGfm from 'remark-gfm'
 import remarkRehype from 'remark-rehype'
 import rehypeRaw from 'rehype-raw'
 import rehypeStringify from 'rehype-stringify'
+import rehypeHighlight from 'rehype-highlight'
 import { visit } from 'unist-util-visit'
 import type { Element, Root } from 'hast'
 import probe from 'probe-image-size'
+import { rehypeCallouts } from './rehype-callouts'
 
 // 图片尺寸缓存
 const imageSizeCache = new Map<string, { width: number; height: number } | null>()
@@ -382,6 +384,8 @@ export async function markdownToHtml(markdown: string): Promise<string> {
     .use(remarkGfm)
     .use(remarkRehype, { allowDangerousHtml: true })
     .use(rehypeRaw)
+    .use(rehypeCallouts)  // 处理 Note: 和 Tips: 特殊格式
+    .use(rehypeHighlight)  // 使用 highlight.js 进行语法高亮
     .use(rehypeHeadingIds)  // 为标题添加 id
     .use(rehypeStandaloneLinkStyle)  // 处理单独一行的链接
     .use(rehypeImageSize)  // 处理图片尺寸

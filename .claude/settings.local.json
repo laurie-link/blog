@@ -27,7 +27,11 @@
       "mcp__playwright__browser_snapshot",
       "Bash(timeout /t 5 /nobreak)",
       "Bash(netstat:*)",
-      "Bash(timeout:*)"
+      "Bash(timeout:*)",
+      "mcp__playwright__browser_type",
+      "mcp__playwright__browser_wait_for",
+      "Bash(if exist \"D:\\blog\\.next\" rmdir /s /q \"D:\\blog\\.next\")",
+      "Bash(if exist .next rmdir /s /q .next)"
     ],
     "deny": [],
     "ask": []
