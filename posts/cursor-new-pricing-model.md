@@ -1,6 +1,6 @@
 ---
 title: Cursor新收费模型一个月可用40刀
-date: 2024-12-06
+date: 2025-12-06
 excerpt: Cursor 想开始赚钱了
 tags: ["AI工具"]
 category: AI学习
